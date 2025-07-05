@@ -26,7 +26,8 @@
                     <a href="Usurio.htm">
                        <i class="fa-solid fa-user"></i>
                     </a>
-                   <i class="fa-solid fa-basket-shopping"></i>                        
+                   <div id="icono-carrito" class="carrito-icon">
+                    <i class="fa-solid fa-basket-shopping"></i>                       
                     <div class="content-shopping-cart">
                         <span class="text">Carrito</span>
                         <span class="numer">(0)</span>
@@ -34,6 +35,22 @@
                 </div>
             </div>
         </div>
+<div id="carrito-desplegable" class="carrito-dropdown hidden">
+    <table id="lista-carrito">
+        <thead>
+            <tr>
+                <th>Imagen</th>
+                <th>Producto</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <button id="vaciar-carrito">Vaciar carrito</button>
+    <button id="pagar-carrito" class="btn-pagar">Pagar</button>
+</div>
+</div>
         <div class="container-navbar">
             <nav class="navbar container">
                 <i class="fa-solid fa-bars"></i>
@@ -55,13 +72,13 @@
             </nav>
         </div>
     </header>
-    <section class="banner">
-        <div class="content-banner">
-            <p>Colecion Comoda</p>
-            <h2>100% de algodon <br>Camisetas Frescas</h2>
-            <a href="#">Comprar ahora</a>
-        </div>
-    </section>
+<section class="banner">
+    <div class="content-banner">
+        <p>Colección Cómoda</p>
+        <h2>100% de algodón <br>Camisetas Frescas</h2>
+        <a href="#productos" class="btn-comprar">Ver más</a>
+    </div>
+</section>
 
     <main class="main-content">
         <section class="container container-features">
@@ -113,17 +130,18 @@
                 </div>
             </div>
         </section>
+<section class="container top-products" id="productos">
+    <h1 class="heading-1">Mejores Productos</h1>
 
-        <section class="container top-products">
-            <h1 class="heading-1">Mejores Productos</h1>
+    <div class="container-options">
+        <span class="active" data-filter="destacados">Destacados</span>
+        <span data-filter="recientes">Más recientes</span>
+        <span data-filter="vendidos">Mejores vendidos</span>
+    </div>
 
-            <div class="container-options">
-                <span class="active">Destacados</span>
-                <span>Mas recientes</span>
-                <span>Mejores Venndidos</span>
-            </div>
-
+    <div class="products-container" id="products-container">
             <div class="container-products">
+                
             <!--Producto 1 ----->
                 <div class="card-product">
                     <div class="container-img">
@@ -270,37 +288,31 @@
         <section class="container-products">
    
             <!--Producto 1 ----->
-               <div class="card-product">
-                    <div class="container-img">
-                        <img src="assets/css/white front.jpg" alt="Camiseta Blanca">
-                        <span class="discount">-10%</span>
-                        <div class="button-group">
-                            <span>
-                                <i class="fa-regular fa-eye"></i>
-                            </span>
-                            <span>
-                                <i class="fa-regular fa-heart"></i>
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-code-compare"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="content-card-product">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Camiseta Blanca"</h3>
-                        <span class="add-cart">
-                            <i class="fa-solid fa-basket-shopping"></i>
-                        </span>
-                        <p class="price">$119.99 <span>$130.00</span></p>
-                    </div>
-                </div>
+<div class="card-product">
+    <div class="container-img">
+        <img src="assets/css/white front.jpg" alt="Camiseta Blanca">
+        <span class="discount">-10%</span>
+        <div class="button-group">
+            <span><i class="fa-regular fa-eye"></i></span>
+            <span><i class="fa-regular fa-heart"></i></span>
+            <span><i class="fa-solid fa-code-compare"></i></span>
+        </div>
+    </div>
+    <div class="content-card-product">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        <h3 class="nombre-producto">Camiseta Blanca</h3>
+        <span class="add-cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+        </span>
+        <p class="price">$119.99 <span>$130.00</span></p>
+    </div>
+</div>
                 <!--Producto 2 ----->
                                <div class="card-product">
                     <div class="container-img">
@@ -486,7 +498,7 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-regular fa-star"></i>
                         </div>
-                        <h3>Hoddie Rosa</h3>
+                        <h3>Hoddie Rosaa</h3>
                         <span class="add-cart">
                             <i class="fa-solid fa-basket-shopping"></i>
                         </span>
@@ -859,6 +871,7 @@
         </section>
     </main>
 
+
     <footer class="footer">
         <div class="container container-footer">
             <div class="menu-footer">
@@ -927,7 +940,13 @@
         </div>
     </footer>
 
-    <script src="https://kit.fontawesome.com/53074f958c.js" crossorigin="anonymous"></script>
     
+
+    <script src="assets/js/script.js"></script>
+    <script src="https://kit.fontawesome.com/53074f958c.js" crossorigin="anonymous"></script>
+
+
+    
+
 </body>
 </html>

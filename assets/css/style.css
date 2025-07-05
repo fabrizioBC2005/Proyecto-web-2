@@ -33,7 +33,6 @@ html{
     font-size: 3rem;
 }
 
-
 /*-------------------------------------------*/
 /*                 HEADER                    */
 /*-------------------------------------------*/
@@ -1099,17 +1098,83 @@ html{
 }
 
 
+.carrito-dropdown {
+    position: absolute;
+    right: 10px;
+    top: 60px;
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 300px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
 
+.carrito-dropdown.hidden {
+    display: none;
+}
 
+.carrito-dropdown table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
+.carrito-dropdown th,
+.carrito-dropdown td {
+    padding: 5px;
+    font-size: 14px;
+    text-align: left;
+}
 
+.carrito-dropdown img {
+    width: 40px;
+    height: auto;
+}
 
+.container-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    border-radius: .5rem;
+}
 
+.container-img {
+    width: 100%;
+    height: 220px; /* Altura fija para todas las imágenes */
+    overflow: hidden;
+    border-radius: .5rem;
+    position: relative;
+}
 
+/* Contenedor de productos tipo carrusel horizontal */
+#products-container {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    flex-wrap: nowrap;
+}
 
+#products-container::-webkit-scrollbar {
+    height: 8px;
+}
 
+#products-container::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 4px;
+}
 
-
+/* Cada tarjeta de producto */
+.card-product {
+    flex: 0 0 auto;
+    width: 260px;
+    scroll-snap-align: center;
+}
 
 
 
