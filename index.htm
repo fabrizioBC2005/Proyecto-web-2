@@ -8,25 +8,44 @@
 </head>
 <body>
     <header>
-        <div class="container-hero">
-            <div class="container hero">
-                <div class="customer-support">
-                    <i class="fa-solid fa-headset"></i>
-                    <div class="content-customer-support">
-                        <span class="text">Soporte al cliente</span>
-                        <span class="number">953-386-653</span>
-                    </div>
-                </div>
-                <div class="container-logo">
-                    <i class="fa-solid fa-store"></i>
-                    <h1 class="logo"><a href="">STORE</a></h1>
-                </div>
+    <div class="container-hero">
+        <div class="container hero">
+<!-- Botón soporte -->
+ <div id="modal-overlay" class="modal-overlay"></div>
+<div onclick="abrirSoporte()" class="customer-support" style="cursor: pointer;">
+    <i class="fa-solid fa-headset"></i>
+    <div class="content-customer-support">
+        <span class="text">Soporte al cliente</span>
+        <span class="number">953-386-653</span>
+    </div>
+</div>
 
-                <div class="container-user">
-                    <a href="Usurio.htm">
-                       <i class="fa-solid fa-user"></i>
-                    </a>
-                   <div id="icono-carrito" class="carrito-icon">
+<!-- Modal soporte -->
+<div id="modal-soporte" style="display: none; position: fixed; top: 20%; left: 50%; transform: translateX(-50%); background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px #000;">
+    <h3>Atención al Cliente</h3>
+    <p>Comunícate con nosotros vía WhatsApp o correo:</p>
+    <ul>
+        <li>📞 Teléfono: 953-386-653</li>
+        <li>📧 Email: rofadeclub@gmail.com</li>
+        <li><a href="https://wa.me/51953386653" target="_blank">Ir a WhatsApp</a></li>
+    </ul>
+    <button onclick="cerrarSoporte()">Cerrar</button>
+</div>
+            <div class="container-logo">
+                <i class="fa-solid fa-store"></i>
+                <h1 class="logo"><a href="">STORE</a></h1>
+            </div>
+
+<div class="container-user">
+    <a href="Usurio.htm" id="icono-login" style="display: inline;">
+        <i class="fa-solid fa-user"></i>
+    </a>
+    <span id="nombre-usuario" style="margin-left: 8px; font-weight: bold;"></span>
+    <button id="btn-logout" onclick="cerrarSesion()" style="margin-left: 10px; display: none;">Cerrar sesión</button>
+</div>
+
+                <!-- Ícono del carrito con dropdown -->
+                <div id="icono-carrito" class="carrito-icon">
                     <i class="fa-solid fa-basket-shopping"></i>                       
                     <div class="content-shopping-cart">
                         <span class="text">Carrito</span>
@@ -37,41 +56,47 @@
         </div>
 <div id="carrito-desplegable" class="carrito-dropdown hidden">
     <table id="lista-carrito">
-        <thead>
-            <tr>
-                <th>Imagen</th>
-                <th>Producto</th>
-                <th>Precio</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
+<thead>
+    <tr>
+        <th>Imagen</th>
+        <th>Producto</th>
+        <th>Talla</th> <!-- NUEVO -->
+        <th>Cantidad</th>
+        <th>Precio</th>
+    </tr>
+</thead>
+        <tbody>
+            <!-- Aquí se insertan los productos desde JS -->
+        </tbody>
     </table>
 
     <button id="vaciar-carrito">Vaciar carrito</button>
     <button id="pagar-carrito" class="btn-pagar">Pagar</button>
 </div>
 </div>
+
         <div class="container-navbar">
             <nav class="navbar container">
                 <i class="fa-solid fa-bars"></i>
-                <ul class="menu">
-                    <li><a href="" hreft="#">Inicio</a></li>
-                    <li><a href="" hreft="#">Camisetas</a></li>
-                    <li><a href="" hreft="#">Sudaderas</a></li>
-                    <li><a href="" hreft="#">Jeans</a></li>
-                    <li><a href="" hreft="#">Zapatillas</a></li>
-                    <li><a href="" hreft="#">Accesorios</a></li>
-                </ul>
+<ul class="menu">
+  <li><a href="index.htm" class="menu-inicio active">Inicio</a></li>
+  <li><a href="Camisetas.htm" class="menu-camisetas ">Camisetas</a></li>
+  <li><a href="Sudaderas.htm" class="menu-sudaderas ">Sudaderas</a></li>
+  <li><a href="Jeans.htm" class="menu-jeans ">Jeans</a></li>
+  <li><a href="Zapatillas.htm" class="menu-zapatillas ">Zapatillas</a></li>
+  <li><a href="Accesorios.htm" class="menu-accesorios ">Accesorios</a></li>
+</ul>
 
-                <form class="search-form">
-                    <input type="search" placeholder="Buscar....">
-                    <button class="btn-search">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                </form>
+<form class="search-form" id="form-busqueda">
+  <input type="search" id="input-busqueda" name="q" placeholder="Buscar..." />
+  <button type="submit" class="btn-search">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+</form>
             </nav>
         </div>
     </header>
+
 <section class="banner">
     <div class="content-banner">
         <p>Colección Cómoda</p>
@@ -113,23 +138,23 @@
         </section>
 
 
-        <section class="container top-categories">
-            <h1 class="heading-1">Mejores Categorias</h1>
-            <div class="container-categories">
-                <div class="card-category category-Coleccion">
-                    <p>Coleccion</p>
-                    <span>Ver más</span>
-                </div>
-                <div class="card-category category-Jeans">
-                    <p>Jeans</p>
-                    <span>Ver más</span>
-                </div>
-                <div class="card-category category-Accesorios">
-                    <p>Accesorios</p>
-                    <span>Ver más</span>
-                </div>
-            </div>
-        </section>
+      <section class="container top-categories">
+    <h1 class="heading-1">Mejores Categorías</h1>
+    <div class="container-categories">
+        <div class="card-category category-Coleccion">
+            <p>Zapatillas</p>
+            <a href="Zapatillas.htm" class="link-ver-mas">Ver más</a>
+        </div>
+        <div class="card-category category-Jeans">
+            <p>Jeans</p>
+            <a href="Jeans.htm" class="link-ver-mas">Ver más</a>
+        </div>
+        <div class="card-category category-Accesorios">
+            <p>Accesorios</p>
+            <a href="Accesorios.htm" class="link-ver-mas" >Ver más</a>
+        </div>
+    </div>
+</section>
 <section class="container top-products" id="productos">
     <h1 class="heading-1">Mejores Productos</h1>
 
@@ -142,14 +167,15 @@
     <div class="products-container" id="products-container">
             <div class="container-products">
                 
+                
             <!--Producto 1 ----->
                 <div class="card-product">
                     <div class="container-img">
                         <img src="assets/img/Gap X Yeezy Black Hoodie.jpeg" alt="Hoddie Black">
                         <span class="discount">-10%</span>
                         <div class="button-group">
-                            <span>
-                                <i class="fa-regular fa-eye"></i>
+                           <span class="btn-ver-producto" data-nombre="Camiseta Blanca" data-precio="119.99" data-img="assets/css/white front.jpg">
+                               <i class="fa-regular fa-eye"></i>
                             </span>
                             <span>
                                 <i class="fa-regular fa-heart"></i>
@@ -290,10 +316,295 @@
             <!--Producto 1 ----->
 <div class="card-product">
     <div class="container-img">
-        <img src="assets/css/white front.jpg" alt="Camiseta Blanca">
+        <img src="assets/img/Gap X Yeezy Black Hoodie.jpeg" alt="Hoddie Black">
         <span class="discount">-10%</span>
         <div class="button-group">
-            <span><i class="fa-regular fa-eye"></i></span>
+            <span class="btn-ver-producto" 
+                  data-nombre="Hoddie Negra" 
+                  data-precio="119.99" 
+                  data-img="assets/img/Gap X Yeezy Black Hoodie.jpeg">
+                <i class="fa-regular fa-eye"></i>
+            </span>
+            <span>
+                <i class="fa-regular fa-heart"></i>
+            </span>
+            <span>
+                <i class="fa-solid fa-code-compare"></i>
+            </span>
+        </div>
+    </div>
+    <div class="content-card-product">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        <h3>Hoddie Negra</h3>
+        <span class="add-cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+        </span>
+        <p class="price">$119.99 <span>$130.00</span></p>
+    </div>
+</div>
+                <!--Producto 2 ----->
+                         <div class="card-product">
+    <div class="container-img">
+        <img src="assets/css/cropped hodddie.jpg" alt="Hoddie Cropped">
+        <span class="discount">-10%</span>
+        <div class="button-group">
+            <span class="btn-ver-producto" 
+                  data-nombre="Hoddie Cropped" 
+                  data-precio="119.99" 
+                  data-img="assets/css/cropped hodddie.jpg">
+                <i class="fa-regular fa-eye"></i>
+            </span>
+            <span>
+                <i class="fa-regular fa-heart"></i>
+            </span>
+            <span>
+                <i class="fa-solid fa-code-compare"></i>
+            </span>
+        </div>
+    </div>
+    <div class="content-card-product">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        <h3>Hoddie Cropped</h3>
+        <span class="add-cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+        </span>
+        <p class="price"><span class="before">$130.00</span> $119.99</p>
+    </div>
+</div>
+                <!--Producto 3 ----->
+                             <div class="card-product">
+    <div class="container-img">
+        <img src="assets/css/crema beanie.jpg" alt="Crema beanie">
+        <span class="discount">-10%</span>
+        <div class="button-group">
+            <span class="btn-ver-producto"
+                  data-nombre="Crema beanie"
+                  data-precio="119.99"
+                  data-img="assets/css/crema beanie.jpg">
+                <i class="fa-regular fa-eye"></i>
+            </span>
+            <span>
+                <i class="fa-regular fa-heart"></i>
+            </span>
+            <span>
+                <i class="fa-solid fa-code-compare"></i>
+            </span>
+        </div>
+    </div>
+    <div class="content-card-product">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        <h3>Crema beanie</h3>
+        <span class="add-cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+        </span>
+        <p class="price"><span class="before">$130.00</span> $119.99</p>
+    </div>
+</div>
+                <!--Producto 4 ----->
+               <div class="card-product">
+    <div class="container-img">
+        <img src="assets/css/hoddie morado.jpg" alt="Hoddie morado">
+        <span class="discount">-10%</span>
+        <div class="button-group">
+            <span class="btn-ver-producto"
+                  data-nombre="Hoddie morado"
+                  data-precio="119.99"
+                  data-img="assets/css/hoddie morado.jpg">
+                <i class="fa-regular fa-eye"></i>
+            </span>
+            <span>
+                <i class="fa-regular fa-heart"></i>
+            </span>
+            <span>
+                <i class="fa-solid fa-code-compare"></i>
+            </span>
+        </div>
+    </div>
+    <div class="content-card-product">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        <h3>Hoddie morado</h3>
+        <span class="add-cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+        </span>
+        <p class="price"><span class="before">$130.00</span> $119.99</p>
+    </div>
+</div>
+                <!--Producto 5 ----->
+               <div class="card-product">
+    <div class="container-img">
+        <img src="assets/css/camiseta verde.jpg" alt="Camiseta Diseño">
+        <span class="discount">-10%</span>
+        <div class="button-group">
+            <span class="btn-ver-producto"
+                  data-nombre="Camiseta Con Diseño"
+                  data-precio="119.99"
+                  data-img="assets/css/camiseta verde.jpg">
+                <i class="fa-regular fa-eye"></i>
+            </span>
+            <span>
+                <i class="fa-regular fa-heart"></i>
+            </span>
+            <span>
+                <i class="fa-solid fa-code-compare"></i>
+            </span>
+        </div>
+    </div>
+    <div class="content-card-product">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        <h3>Camiseta Con Diseño</h3>
+        <span class="add-cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+        </span>
+        <p class="price"><span class="before">$130.00</span> $119.99</p>
+    </div>
+</div>
+               <!--Producto 6 ----->
+               <div class="card-product">
+    <div class="container-img">
+        <img src="assets/css/camiseta nY.jpg" alt="Camiseta NY">
+        <span class="discount">-10%</span>
+        <div class="button-group">
+            <span class="btn-ver-producto"
+                  data-nombre="Camiseta StreetWear"
+                  data-precio="119.99"
+                  data-img="assets/css/camiseta nY.jpg">
+                <i class="fa-regular fa-eye"></i>
+            </span>
+            <span>
+                <i class="fa-regular fa-heart"></i>
+            </span>
+            <span>
+                <i class="fa-solid fa-code-compare"></i>
+            </span>
+        </div>
+    </div>
+    <div class="content-card-product">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        <h3>Camiseta StreetWear</h3>
+        <span class="add-cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+        </span>
+        <p class="price"><span class="before">$130.00</span> $119.99</p>
+    </div>
+</div>
+                <!--Producto 7----->
+               <div class="card-product">
+    <div class="container-img">
+        <img src="assets/css/hoddie rose.jpg" alt="Hoddie rosa">
+        <span class="discount">-10%</span>
+        <div class="button-group">
+            <span class="btn-ver-producto"
+                  data-nombre="Hoddie Rosaa"
+                  data-precio="119.99"
+                  data-img="assets/css/hoddie rose.jpg">
+                <i class="fa-regular fa-eye"></i>
+            </span>
+            <span>
+                <i class="fa-regular fa-heart"></i>
+            </span>
+            <span>
+                <i class="fa-solid fa-code-compare"></i>
+            </span>
+        </div>
+    </div>
+    <div class="content-card-product">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        <h3>Hoddie Rosaa</h3>
+        <span class="add-cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+        </span>
+        <p class="price"><span class="before">$130.00</span> $119.99</p>
+    </div>
+</div>
+                <!--Producto 8----->
+                <div class="card-product">
+    <div class="container-img">
+        <img src="assets/css/camiseta marron.jpg" alt="Camiseta Marrón">
+        <span class="discount">-10%</span>
+        <div class="button-group">
+            <span class="btn-ver-producto"
+                  data-nombre="Camiseta Marrón"
+                  data-precio="119.99"
+                  data-img="assets/css/camiseta marron.jpg">
+                <i class="fa-regular fa-eye"></i>
+            </span>
+            <span>
+                <i class="fa-regular fa-heart"></i>
+            </span>
+            <span>
+                <i class="fa-solid fa-code-compare"></i>
+            </span>
+        </div>
+    </div>
+    <div class="content-card-product">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        <h3>Camiseta Marrón</h3>
+        <span class="add-cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+        </span>
+        <p class="price"><span class="before">$130.00</span> $119.99</p>
+    </div>
+</div>
+                <!--Producto 9----->
+<div class="card-product">
+    <div class="container-img">
+        <img src="assets/css/hoddie negra.jpg" alt="Hoddie Negra">
+        <span class="discount">-10%</span>
+        <div class="button-group">
+            <span class="btn-ver-producto"
+                data-nombre="Hoddie Negra Basico"
+                data-precio="119.99"
+                data-img="assets/css/hoddie negra.jpg">
+                <i class="fa-regular fa-eye"></i>
+            </span>
             <span><i class="fa-regular fa-heart"></i></span>
             <span><i class="fa-solid fa-code-compare"></i></span>
         </div>
@@ -306,497 +617,237 @@
             <i class="fa-solid fa-star"></i>
             <i class="fa-regular fa-star"></i>
         </div>
-        <h3 class="nombre-producto">Camiseta Blanca</h3>
+        <h3>Hoddie Negra Basico</h3>
         <span class="add-cart">
             <i class="fa-solid fa-basket-shopping"></i>
         </span>
-        <p class="price">$119.99 <span>$130.00</span></p>
+        <p class="price"><span class="before">$130.00</span> $119.99</p>
     </div>
 </div>
-                <!--Producto 2 ----->
-                               <div class="card-product">
-                    <div class="container-img">
-                        <img src="assets/css/cropped hodddie.jpg" alt="Hoddie Cropped">
-                        <span class="discount">-10%</span>
-                        <div class="button-group">
-                            <span>
-                                <i class="fa-regular fa-eye"></i>
-                            </span>
-                            <span>
-                                <i class="fa-regular fa-heart"></i>
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-code-compare"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="content-card-product">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Hoddie Cropped</h3>
-                        <span class="add-cart">
-                            <i class="fa-solid fa-basket-shopping"></i>
-                        </span>
-                        <p class="price">$119.99 <span>$130.00</span></p>
-                    </div>
-                </div>
-                <!--Producto 3 ----->
-                               <div class="card-product">
-                    <div class="container-img">
-                        <img src="assets/css/crema beanie.jpg" alt="Crema beanie">
-                        <span class="discount">-10%</span>
-                        <div class="button-group">
-                            <span>
-                                <i class="fa-regular fa-eye"></i>
-                            </span>
-                            <span>
-                                <i class="fa-regular fa-heart"></i>
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-code-compare"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="content-card-product">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Crema beanie</h3>
-                        <span class="add-cart">
-                            <i class="fa-solid fa-basket-shopping"></i>
-                        </span>
-                        <p class="price">$119.99 <span>$130.00</span></p>
-                    </div>
-                </div>
-                <!--Producto 4 ----->
-                <div class="card-product">
-                    <div class="container-img">
-                        <img src="assets/css/hoddie morado.jpg" alt="Hoddie morado">
-                        <span class="discount">-10%</span>
-                        <div class="button-group">
-                            <span>
-                                <i class="fa-regular fa-eye"></i>
-                            </span>
-                            <span>
-                                <i class="fa-regular fa-heart"></i>
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-code-compare"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="content-card-product">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Hoddie morado</h3>
-                        <span class="add-cart">
-                            <i class="fa-solid fa-basket-shopping"></i>
-                        </span>
-                        <p class="price">$119.99 <span>$130.00</span></p>
-                    </div>
-                </div>
-                <!--Producto 5 ----->
-                <div class="card-product">
-                    <div class="container-img">
-                        <img src="assets/css/camiseta verde.jpg" alt="Camiseta Diseño">
-                        <span class="discount">-10%</span>
-                        <div class="button-group">
-                            <span>
-                                <i class="fa-regular fa-eye"></i>
-                            </span>
-                            <span>
-                                <i class="fa-regular fa-heart"></i>
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-code-compare"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="content-card-product">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Camiseta Con Diseño</h3>
-                        <span class="add-cart">
-                            <i class="fa-solid fa-basket-shopping"></i>
-                        </span>
-                        <p class="price">$119.99 <span>$130.00</span></p>
-                    </div>
-                </div>
-               <!--Producto 6 ----->
-                <div class="card-product">
-                    <div class="container-img">
-                        <img src="assets/css/camiseta nY.jpg" alt="Camiseta NY">
-                        <span class="discount">-10%</span>
-                        <div class="button-group">
-                            <span>
-                                <i class="fa-regular fa-eye"></i>
-                            </span>
-                            <span>
-                                <i class="fa-regular fa-heart"></i>
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-code-compare"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="content-card-product">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Camiseta StreetWear</h3>
-                        <span class="add-cart">
-                            <i class="fa-solid fa-basket-shopping"></i>
-                        </span>
-                        <p class="price">$119.99 <span>$130.00</span></p>
-                    </div>
-                </div>
-                <!--Producto 7----->
-                <div class="card-product">
-                    <div class="container-img">
-                        <img src="assets/css/hoddie rose.jpg" alt="Hoddie rosa">
-                        <span class="discount">-10%</span>
-                        <div class="button-group">
-                            <span>
-                                <i class="fa-regular fa-eye"></i>
-                            </span>
-                            <span>
-                                <i class="fa-regular fa-heart"></i>
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-code-compare"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="content-card-product">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Hoddie Rosaa</h3>
-                        <span class="add-cart">
-                            <i class="fa-solid fa-basket-shopping"></i>
-                        </span>
-                        <p class="price">$119.99 <span>$130.00</span></p>
-                    </div>
-                </div>
-                <!--Producto 8----->
-                <div class="card-product">
-                    <div class="container-img">
-                        <img src="assets/css/camiseta marron.jpg" alt="Camiseta Marron">
-                        <span class="discount">-10%</span>
-                        <div class="button-group">
-                            <span>
-                                <i class="fa-regular fa-eye"></i>
-                            </span>
-                            <span>
-                                <i class="fa-regular fa-heart"></i>
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-code-compare"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="content-card-product">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Camiseta Marron</h3>
-                        <span class="add-cart">
-                            <i class="fa-solid fa-basket-shopping"></i>
-                        </span>
-                        <p class="price">$119.99 <span>$130.00</span></p>
-                    </div>
-                </div>
-                <!--Producto 9----->
-                <div class="card-product">
-                    <div class="container-img">
-                        <img src="assets/css/hoddie negra.jpg" alt="Hoddie Negra">
-                        <span class="discount">-10%</span>
-                        <div class="button-group">
-                            <span>
-                                <i class="fa-regular fa-eye"></i>
-                            </span>
-                            <span>
-                                <i class="fa-regular fa-heart"></i>
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-code-compare"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="content-card-product">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Hoddie Negra Basico</h3>
-                        <span class="add-cart">
-                            <i class="fa-solid fa-basket-shopping"></i>
-                        </span>
-                        <p class="price">$119.99 <span>$130.00</span></p>
-                    </div>
-                </div>
                 <!--Producto 10 ----->
-                <div class="card-product">
-                    <div class="container-img">
-                        <img src="assets/css/camiseta black recomenand.jpg" alt="Camiseta Negra">
-                        <span class="discount">-10%</span>
-                        <div class="button-group">
-                            <span>
-                                <i class="fa-regular fa-eye"></i>
-                            </span>
-                            <span>
-                                <i class="fa-regular fa-heart"></i>
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-code-compare"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="content-card-product">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Camiseta Negra</h3>
-                        <span class="add-cart">
-                            <i class="fa-solid fa-basket-shopping"></i>
-                        </span>
-                        <p class="price">$119.99 <span>$130.00</span></p>
-                    </div>
-                </div>
+               <div class="card-product">
+    <div class="container-img">
+        <img src="assets/css/camiseta black recomenand.jpg" alt="Camiseta Negra">
+        <span class="discount">-10%</span>
+        <div class="button-group">
+            <!-- Botón para mostrar modal -->
+            <span class="btn-ver-producto"
+                  data-nombre="Camiseta Negra"
+                  data-precio="119.99"
+                  data-img="assets/css/camiseta black recomenand.jpg">
+                <i class="fa-regular fa-eye"></i>
+            </span>
+            <span><i class="fa-regular fa-heart"></i></span>
+            <span><i class="fa-solid fa-code-compare"></i></span>
+        </div>
+    </div>
+    <div class="content-card-product">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        <h3>Camiseta Negra</h3>
+        <span class="add-cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+        </span>
+        <p class="price"><span class="before">$130.00</span> $119.99</p>
+    </div>
+</div>
                   <!--Producto 11 ----->
-                <div class="card-product">
-                    <div class="container-img">
-                        <img src="assets/css/Black front.jpg" alt="Camiseta Black">
-                        <span class="discount">-10%</span>
-                        <div class="button-group">
-                            <span>
-                                <i class="fa-regular fa-eye"></i>
-                            </span>
-                            <span>
-                                <i class="fa-regular fa-heart"></i>
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-code-compare"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="content-card-product">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Camiseta Black StreetWear</h3>
-                        <span class="add-cart">
-                            <i class="fa-solid fa-basket-shopping"></i>
-                        </span>
-                        <p class="price">$119.99 <span>$130.00</span></p>
-                    </div>
-                </div>
+               <div class="card-product">
+    <div class="container-img">
+        <img src="assets/css/Black front.jpg" alt="Camiseta Black">
+        <span class="discount">-10%</span>
+        <div class="button-group">
+            <!-- Botón de ver producto para el modal -->
+            <span class="btn-ver-producto"
+                  data-nombre="Camiseta Black StreetWear"
+                  data-precio="119.99"
+                  data-img="assets/css/Black front.jpg">
+                <i class="fa-regular fa-eye"></i>
+            </span>
+            <span><i class="fa-regular fa-heart"></i></span>
+            <span><i class="fa-solid fa-code-compare"></i></span>
+        </div>
+    </div>
+    <div class="content-card-product">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        <h3>Camiseta Black StreetWear</h3>
+        <span class="add-cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+        </span>
+        <p class="price"><span class="before">$130.00</span> $119.99</p>
+    </div>
+</div>
                   <!--Producto 12 ----->
-                <div class="card-product">
-                    <div class="container-img">
-                        <img src="assets/css/stussy beanie.jpg" alt="Stussy beanie">
-                        <span class="discount">-10%</span>
-                        <div class="button-group">
-                            <span>
-                                <i class="fa-regular fa-eye"></i>
-                            </span>
-                            <span>
-                                <i class="fa-regular fa-heart"></i>
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-code-compare"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="content-card-product">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Stussy beanie</h3>
-                        <span class="add-cart">
-                            <i class="fa-solid fa-basket-shopping"></i>
-                        </span>
-                        <p class="price">$119.99 <span>$130.00</span></p>
-                    </div>
-                </div>
+               <div class="card-product">
+    <div class="container-img">
+        <img src="assets/css/stussy beanie.jpg" alt="Stussy beanie">
+        <span class="discount">-10%</span>
+        <div class="button-group">
+            <span class="btn-ver-producto"
+                  data-nombre="Stussy beanie"
+                  data-precio="119.99"
+                  data-img="assets/css/stussy beanie.jpg">
+                <i class="fa-regular fa-eye"></i>
+            </span>
+            <span><i class="fa-regular fa-heart"></i></span>
+            <span><i class="fa-solid fa-code-compare"></i></span>
+        </div>
+    </div>
+    <div class="content-card-product">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        <h3>Stussy beanie</h3>
+        <span class="add-cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+        </span>
+        <p class="price"><span class="before">$130.00</span> $119.99</p>
+    </div>
+</div>
                   <!--Producto 13 ----->
                 <div class="card-product">
-                    <div class="container-img">
-                        <img src="assets/css/Jean_méga_baggy_-_Homme-removebg-preview.png" alt="Jean Baggy negra">
-                        <span class="discount">-10%</span>
-                        <div class="button-group">
-                            <span>
-                                <i class="fa-regular fa-eye"></i>
-                            </span>
-                            <span>
-                                <i class="fa-regular fa-heart"></i>
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-code-compare"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="content-card-product">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Jean Baggy negra</h3>
-                        <span class="add-cart">
-                            <i class="fa-solid fa-basket-shopping"></i>
-                        </span>
-                        <p class="price">$119.99 <span>$130.00</span></p>
-                    </div>
-                </div>
+    <div class="container-img">
+        <img src="assets/css/Jean_méga_baggy_-_Homme-removebg-preview.png" alt="Jean Baggy negra">
+        <span class="discount">-10%</span>
+        <div class="button-group">
+            <span class="btn-ver-producto"
+                  data-nombre="Jean Baggy negra"
+                  data-precio="119.99"
+                  data-img="assets/css/Jean_méga_baggy_-_Homme-removebg-preview.png">
+                <i class="fa-regular fa-eye"></i>
+            </span>
+            <span><i class="fa-regular fa-heart"></i></span>
+            <span><i class="fa-solid fa-code-compare"></i></span>
+        </div>
+    </div>
+    <div class="content-card-product">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        <h3>Jean Baggy negra</h3>
+        <span class="add-cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+        </span>
+        <p class="price"><span class="before">$130.00</span> $119.99</p>
+    </div>
+</div>
                   <!--Producto 14 ----->
-                <div class="card-product">
-                    <div class="container-img">
-                        <img src="assets/css/Stussy black beanie.jpg" alt="Stussy Beanie Black">
-                        <span class="discount">-10%</span>
-                        <div class="button-group">
-                            <span>
-                                <i class="fa-regular fa-eye"></i>
-                            </span>
-                            <span>
-                                <i class="fa-regular fa-heart"></i>
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-code-compare"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="content-card-product">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Stussy Beanie Black</h3>
-                        <span class="add-cart">
-                            <i class="fa-solid fa-basket-shopping"></i>
-                        </span>
-                        <p class="price">$119.99 <span>$130.00</span></p>
-                    </div>
-                </div>
+               <div class="card-product">
+    <div class="container-img">
+        <img src="assets/css/Stussy black beanie.jpg" alt="Stussy Beanie Black">
+        <span class="discount">-10%</span>
+        <div class="button-group">
+            <span class="btn-ver-producto"
+                  data-nombre="Stussy Beanie Black"
+                  data-precio="119.99"
+                  data-img="assets/css/Stussy black beanie.jpg">
+                <i class="fa-regular fa-eye"></i>
+            </span>
+            <span><i class="fa-regular fa-heart"></i></span>
+            <span><i class="fa-solid fa-code-compare"></i></span>
+        </div>
+    </div>
+    <div class="content-card-product">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        <h3>Stussy Beanie Black</h3>
+        <span class="add-cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+        </span>
+        <p class="price"><span class="before">$130.00</span> $119.99</p>
+    </div>
+</div>
                   <!--Producto 15 ----->
-                <div class="card-product">
-                    <div class="container-img">
-                        <img src="assets/css/hoddie boxy -gris.png" alt="Hoddie Gris Boxy Fit">
-                        <span class="discount">-10%</span>
-                        <div class="button-group">
-                            <span>
-                                <i class="fa-regular fa-eye"></i>
-                            </span>
-                            <span>
-                                <i class="fa-regular fa-heart"></i>
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-code-compare"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="content-card-product">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Hoddie Gris Boxy Fit</h3>
-                        <span class="add-cart">
-                            <i class="fa-solid fa-basket-shopping"></i>
-                        </span>
-                        <p class="price">$119.99 <span>$130.00</span></p>
-                    </div>
-                </div>
+               <div class="card-product">
+    <div class="container-img">
+        <img src="assets/css/hoddie boxy -gris.png" alt="Hoddie Gris Boxy Fit">
+        <span class="discount">-10%</span>
+        <div class="button-group">
+            <span class="btn-ver-producto"
+                  data-nombre="Hoddie Gris Boxy Fit"
+                  data-precio="119.99"
+                  data-img="assets/css/hoddie boxy -gris.png">
+                <i class="fa-regular fa-eye"></i>
+            </span>
+            <span><i class="fa-regular fa-heart"></i></span>
+            <span><i class="fa-solid fa-code-compare"></i></span>
+        </div>
+    </div>
+    <div class="content-card-product">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        <h3>Hoddie Gris Boxy Fit</h3>
+        <span class="add-cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+        </span>
+        <p class="price"><span class="before">$130.00</span> $119.99</p>
+    </div>
+</div>
                   <!--Producto 16 ----->
-                <div class="card-product">
-                    <div class="container-img">
-                        <img src="assets/css/jeans degrade.jpg" alt="Jeans degrade">
-                        <span class="discount">-10%</span>
-                        <div class="button-group">
-                            <span>
-                                <i class="fa-regular fa-eye"></i>
-                            </span>
-                            <span>
-                                <i class="fa-regular fa-heart"></i>
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-code-compare"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="content-card-product">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Jeans Degradado</h3>
-                        <span class="add-cart">
-                            <i class="fa-solid fa-basket-shopping"></i>
-                        </span>
-                        <p class="price">$119.99 <span>$130.00</span></p>
-                    </div>
-                </div>     
+<div class="card-product">
+    <div class="container-img">
+        <img src="assets/css/jeans degrade.jpg" alt="Jeans degrade">
+        <span class="discount">-10%</span>
+        <div class="button-group">
+            <span class="btn-ver-producto"
+                  data-nombre="Jeans Degradado"
+                  data-precio="119.99"
+                  data-img="assets/css/jeans degrade.jpg">
+                <i class="fa-regular fa-eye"></i>
+            </span>
+            <span><i class="fa-regular fa-heart"></i></span>
+            <span><i class="fa-solid fa-code-compare"></i></span>
+        </div>
+    </div>
+    <div class="content-card-product">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        <h3>Jeans Degradado</h3>
+        <span class="add-cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+        </span>
+        <p class="price"><span class="before">$130.00</span> $119.99</p>
+    </div>
+</div>
+
         </section>
 
         <section class="container blogs">
-            <h1 class="container-blogs">Ultimos Blogs</h1>
+            <h1 class="title-blogs">Últimos Blogs</h1>
 
             <div class="container-blogs">
                 <div class="card-blog">
@@ -812,13 +863,13 @@
                         </div>
                     </div>
                     <div class="content-blog">
-                        <h3>Lorem, ipsum dolor sit</h3>
-                        <span>29 noviembre 2022</span>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, illo! Iure 
-                            beatae deserunt obcaecati et ipsam in consectetur cum animi
-                            minima esse? Dolore id unde delectus nihil distinctio totam dolores.
+                        <h3>La influencia del streetwear en la moda actual</h3>
+                        <span>18 julio 2023</span>
+                        <p>El streetwear ha dejado de ser una subcultura para convertirse en una de las corrientes más influyentes de la moda global.
                         </p>
-                        <div class="btn-read-more">Leer más</div>
+                        <div class="btn-read-more">
+                             <a href="blog.htm">Leer más</a>
+                          </div>
                     </div>
                 </div>
                 <!--BLOG 2----->
@@ -835,13 +886,13 @@
                         </div>
                     </div>
                     <div class="content-blog">
-                        <h3>Lorem, ipsum dolor sit</h3>
-                        <span>29 noviembre 2022</span>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, illo! Iure 
-                            beatae deserunt obcaecati et ipsam in consectetur cum animi
-                            minima esse? Dolore id unde delectus nihil distinctio totam dolores.
+                        <h3>Cómo diseñamos nuestras prendas: del boceto al producto</h3>
+                        <span>18 julio 2024</span>
+                        <p>Cada prenda tiene un proceso creativo único. Te contamos paso a paso cómo nace una camiseta desde cero.
                         </p>
-                        <div class="btn-read-more">Leer más</div>
+                        <div class="btn-read-more">
+                             <a href="blog2.htm">Leer más</a>
+                          </div>
                     </div>
                 </div>
                 <!--blog 3----->
@@ -858,13 +909,13 @@
                         </div>
                     </div>
                     <div class="content-blog">
-                        <h3>Lorem, ipsum dolor sit</h3>
-                        <span>29 noviembre 2022</span>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, illo! Iure 
-                            beatae deserunt obcaecati et ipsam in consectetur cum animi
-                            minima esse? Dolore id unde delectus nihil distinctio totam dolores.
+                        <h3>Los colores que dominarán esta temporada</h3>
+                        <span>29 noviembre 2025</span>
+                        <p>El 2025 llega con una explosión de tonos naturales, terrosos y vibrantes. Te contamos qué colores marcarán tendencia y cómo los aplicamos
                         </p>
-                        <div class="btn-read-more">Leer más</div>
+                       <div class="btn-read-more">
+                             <a href="blog3.htm">Leer más</a>
+                          </div>
                     </div>
                 </div>
             </div>
@@ -876,31 +927,41 @@
         <div class="container container-footer">
             <div class="menu-footer">
                 <div class="contact-info">
-                    <p class="title-footer">Informacion de Contacto</p>
+                    <p class="title-footer">Información de contacto</p>
                     <ul>
                         <li>Direccion: 71 Pennignton lane venom 
                             rokwilre, cgt 0565
                         </li>
                         <li>Telefono: 987-798-778</li>
-                        <li>fax: 5565656</li>
+                        <li>Fax: 5565656</li>
                         <li>Email: rofadeclub@gmail.com</li>
                     </ul>
-                    <div class="social-icons">
-                        <span class="facebook"><i class="fa-brands fa-facebook-f"></i></span>
-                        <span class="twitter"><i class="fa-brands fa-twitter"></i></span>
-                        <span class="instagram"><i class="fa-brands fa-instagram"></i></span>
-                        <span class="youtube"><i class="fa-brands fa-youtube"></i></span>
-                        <span class="tiktok"><i class="fa-brands fa-tiktok"></i></span>
-                    </div>
+<div class="social-icons">
+   <a href="https://www.facebook.com/profile.php?id=61555402406398" target="_blank" class="facebook" title="Facebook">
+       <span><i class="fa-brands fa-facebook-f"></i></span>
+   </a>
+   <a href="https://x.com/rofadeoffciial" target="_blank" class="twitter" title="Twitter">
+       <span><i class="fa-brands fa-twitter"></i></span>
+   </a>
+   <a href="https://www.instagram.com/rofadeofficial/" target="_blank" class="instagram" title="Instagram">
+       <span><i class="fa-brands fa-instagram"></i></span>
+   </a>
+   <a href="https://www.youtube.com/@rofadeclub" target="_blank" class="youtube" title="YouTube">
+       <span><i class="fa-brands fa-youtube"></i></span>
+   </a>
+   <a href="https://www.tiktok.com/@rofadee?lang=es-419" target="_blank" class="tiktok" title="TikTok">
+       <span><i class="fa-brands fa-tiktok"></i></span>
+   </a>
+</div>
                 </div>
 
                 <div class="information">
                     <p class="title-footer">Informacion</p>
                     <ul>
                         <li><a href="#">Acerca de Nosotros</a></li>
-                        <li><a href="#">Informacion Delivery</a></li>
-                        <li><a href="#">Politicas de Privacidad</a></li>
-                        <li><a href="#">Terminos y condiciones</a></li>
+                        <li><a href="#">Información de entrega</a></li>
+                        <li><a href="#">Políticas de privacidad</a></li>
+                        <li><a href="#">Términos y condicioness</a></li>
                         <li><a href="#">Contactanos</a></li>
                     </ul>
                 </div>
@@ -917,22 +978,22 @@
                 </div>
 
                 <div class="newsletter">
-                    <p class="title-footer">Boletin informacion</p>
+                    <p class="title-footer">Boletin informativo</p>
 
                     <div class="content">
                         <p>
-                            Suscribete a nuestros boletines ahora y mantente al dia 
+                            Suscríbete a nuestros boletines ahora y mantente al dia 
                             con nuevas colecciones y ofertas exclusivas.
                         </p>
-                        <input type="email" placeholder="Ingresa el correo aquí..">
-                        <button>Subscribete</button>
+                        <input type="email" placeholder="Ingresa el correo aquí..." required>
+                             <button onclick="suscribirseBoletin()">Suscribirse</button>
                     </div>
                 </div>
             </div>
 
             <div class="copyright">
                 <p>
-                    Desarrollado por Programacion para el mundo copy: 2022
+                    Desarrollado por Programación para el Mundo © 2022
                 </p>
 
                 <img src="assets/css/pagos.png" alt="Pagos">
@@ -940,10 +1001,37 @@
         </div>
     </footer>
 
+<div id="modal-producto" class="modal-producto hidden">
+  <div class="modal-content">
+    <span class="close-modal" id="cerrar-modal">&times;</span>
+    <img id="modal-img" src="" alt="Producto">
+    <h2 id="modal-nombre" class="modal-titulo"></h2>
+    <p id="modal-precio" class="modal-precio"></p>
+    <p id="modal-descripcion" class="modal-texto">Descripción breve del producto.</p>
+
+    <!-- NUEVO: selector de tallas -->
+    <label for="select-talla" class="modal-texto" style="font-weight: bold;">Tallas disponibles:</label>
+    <select id="select-talla" class="modal-texto" style="padding: 5px; margin-bottom: 1rem;">
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <p id="modal-material" class="modal-texto">Material: Algodón premium</p>
+    <p id="modal-stock" class="modal-texto">Disponibilidad: En stock</p>
+
+    <!-- NUEVO: botón de añadir al carrito -->
+    <button id="btn-agregar-carrito" style="margin-top: 1rem; padding: 10px 20px; background-color: #a51010; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+      Añadir al carrito
+    </button>
+  </div>
+</div>
     
+
 
     <script src="assets/js/script.js"></script>
     <script src="https://kit.fontawesome.com/53074f958c.js" crossorigin="anonymous"></script>
+
 
 
     

@@ -62,14 +62,44 @@
 <body>
  <div class="register-container">
         <h2>Registrarse</h2>
-        <form action="index.htm" method="GET">
-            <input type="text" name="nombre" placeholder="Nombre completo" required>
-            <input type="email" name="correo" placeholder="Correo electrónico" required>
-            <input type="text" name="usuario" placeholder="Nombre de usuario" required>
-            <input type="password" name="contrasena" placeholder="Contraseña" required>
-            <button type="submit">Crear cuenta</button>
-        </form>
-    </div>
+<form onsubmit="registrarUsuario(event)">
+    <input type="text" name="nombre" placeholder="Nombre completo" required id="nombre">
+    <input type="email" name="correo" placeholder="Correo electrónico" required id="correo">
+    <input type="text" name="usuario" placeholder="Nombre de usuario" required id="usuario">
+    <input type="password" name="contrasena" placeholder="Contraseña" required id="contrasena">
+    <button type="submit">Crear cuenta</button>
+</form>
+
+<script>
+  function registrarUsuario(e) {
+    e.preventDefault();
+
+    const nombre = document.getElementById("nombre").value;
+    const correo = document.getElementById("correo").value;
+    const usuario = document.getElementById("usuario").value;
+    const contrasena = document.getElementById("contrasena").value;
+
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+    // Verificar si ya existe el usuario
+    const yaExiste = usuarios.some(u => u.usuario === usuario);
+
+    if (yaExiste) {
+      alert("⚠️ El usuario ya está registrado. Intenta con otro nombre de usuario.");
+      return;
+    }
+
+    // Registrar nuevo usuario
+    usuarios.push({ usuario, nombre, correo, contrasena });
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+    // Guardar el nombre para mostrarlo en el index
+    localStorage.setItem("usuarioNombre", nombre);
+
+    alert("✅ ¡Registro exitoso!");
+    window.location.href = "index.htm";
+  }
+</script>
 
 </body>
 </html>

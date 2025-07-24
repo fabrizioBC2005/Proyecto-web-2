@@ -76,15 +76,39 @@
 
     <div class="login-container">
         <h2>Iniciar Sesión</h2>
-        <form action="index.htm" method="get">
-            <input type="text" name="usuario" placeholder="Usuario" required>
-            <input type="password" name="contrasena" placeholder="Contraseña" required>
-            <button type="submit">Ingresar</button>
-        </form>
-        <div class="register-link">
-            ¿No estás registrado? <a href="registro.htm">Regístrate aquí</a>
-        </div>
+<form onsubmit="iniciarSesion(event)">
+    <input type="text" name="usuario" placeholder="Usuario" required id="usuario">
+    <input type="password" name="contrasena" placeholder="Contraseña" required id="contrasena">
+    <button type="submit">Ingresar</button>
+     <div class="register-link">
+        ¿No tienes cuenta? <a href="registro.htm">Regístrate aquí</a>
     </div>
+
+</form>
+
+<script>
+  function iniciarSesion(e) {
+    e.preventDefault();
+
+    const usuario = document.getElementById("usuario").value;
+    const contrasena = document.getElementById("contrasena").value;
+
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+    const usuarioEncontrado = usuarios.find(u => u.usuario === usuario && u.contrasena === contrasena);
+
+    if (!usuarioEncontrado) {
+      alert("❌ Usuario o contraseña incorrectos.");
+      return;
+    }
+
+    // Guardar el nombre en localStorage
+    localStorage.setItem("usuarioNombre", usuarioEncontrado.nombre);
+
+    alert("✅ Inicio de sesión exitoso.");
+    window.location.href = "index.htm";
+  }
+</script>
 
 </body>
 </html>

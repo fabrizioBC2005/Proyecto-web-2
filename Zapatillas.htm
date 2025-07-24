@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camisetas | Rofade</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+<header>
+    <div class="container-hero">
+        <div class="container hero">
+<!-- Botón soporte -->
+ <div id="modal-overlay" class="modal-overlay"></div>
+<div onclick="abrirSoporte()" class="customer-support" style="cursor: pointer;">
+    <i class="fa-solid fa-headset"></i>
+    <div class="content-customer-support">
+        <span class="text">Soporte al cliente</span>
+        <span class="number">953-386-653</span>
+    </div>
+</div>
+
+<!-- Modal soporte -->
+<div id="modal-soporte" style="display: none; position: fixed; top: 20%; left: 50%; transform: translateX(-50%); background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px #000;">
+    <h3>Atención al Cliente</h3>
+    <p>Comunícate con nosotros vía WhatsApp o correo:</p>
+    <ul>
+        <li>📞 Teléfono: 953-386-653</li>
+        <li>📧 Email: rofadeclub@gmail.com</li>
+        <li><a href="https://wa.me/51953386653" target="_blank">Ir a WhatsApp</a></li>
+    </ul>
+    <button onclick="cerrarSoporte()">Cerrar</button>
+</div>
+            <div class="container-logo">
+                <i class="fa-solid fa-store"></i>
+                <h1 class="logo"><a href="">STORE</a></h1>
+            </div>
+
+<div class="container-user">
+    <a href="Usurio.htm" id="icono-login" style="display: inline;">
+        <i class="fa-solid fa-user"></i>
+    </a>
+    <span id="nombre-usuario" style="margin-left: 8px; font-weight: bold;"></span>
+    <button id="btn-logout" onclick="cerrarSesion()" style="margin-left: 10px; display: none;">Cerrar sesión</button>
+</div>
+
+                <!-- Ícono del carrito con dropdown -->
+                <div id="icono-carrito" class="carrito-icon">
+                    <i class="fa-solid fa-basket-shopping"></i>                       
+                    <div class="content-shopping-cart">
+                        <span class="text">Carrito</span>
+                        <span class="numer">(0)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+<div id="carrito-desplegable" class="carrito-dropdown hidden">
+    <table id="lista-carrito">
+<thead>
+    <tr>
+        <th>Imagen</th>
+        <th>Producto</th>
+        <th>Talla</th> <!-- NUEVO -->
+        <th>Cantidad</th>
+        <th>Precio</th>
+    </tr>
+</thead>
+        <tbody>
+            <!-- Aquí se insertan los productos desde JS -->
+        </tbody>
+    </table>
+
+    <button id="vaciar-carrito">Vaciar carrito</button>
+    <button id="pagar-carrito" class="btn-pagar">Pagar</button>
+</div>
+</div>
+
+        <div class="container-navbar">
+            <nav class="navbar container">
+                <i class="fa-solid fa-bars"></i>
+<ul class="menu">
+  <li><a href="index.htm" class="menu-inicio ">Inicio</a></li>
+  <li><a href="Camisetas.htm" class="menu-camisetas ">Camisetas</a></li>
+  <li><a href="Sudaderas.htm" class="menu-sudaderas ">Sudaderas</a></li>
+  <li><a href="Jeans.htm" class="menu-jeans ">Jeans</a></li>
+  <li><a href="Zapatillas.htm" class="menu-zapatillas active">Zapatillas</a></li>
+  <li><a href="Accesorios.htm" class="menu-accesorios ">Accesorios</a></li>
+</ul>
+
+<form class="search-form" id="form-busqueda">
+  <input type="search" id="input-busqueda" name="q" placeholder="Buscar..." />
+  <button type="submit" class="btn-search">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+</form>
+            </nav>
+        </div>
+    </header>
+  <!-- SECCIÓN PRINCIPAL -->
+    <h1 class="heading-1">Zapatillas</h1>
+    <section class="container-products">
+                
+                
+            <!--Producto 1 ----->
+                <div class="card-product">
+                    <div class="container-img">
+                        <img src="assets/IMAGE/Mens_Shoes_-_adidas_Originals_Samba_OG_-_White_-_Core_Black_-_B75806__-removebg-preview.png" alt="Adidas SAMBA">
+                        <div class="button-group">
+                           <span class="btn-ver-producto" data-nombre="Adidas SAMBA" data-precio="119.99" data-img="assets/css/white front.jpg">
+                               <i class="fa-regular fa-eye"></i>
+                            </span>
+                            <span>
+                                <i class="fa-regular fa-heart"></i>
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-code-compare"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <h3>Adidas SAMBA</h3>
+                        <span class="add-cart">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <p class="price">$120.00</p>
+                    </div>
+                </div>
+                 <!--Producto 2 ----->
+                                 <div class="card-product">
+                    <div class="container-img">
+                        <img src="assets/IMAGE/Nike_Shoes___Nike_Dunk_Low_Retro_Unc___Color__Blue_White___Size__9-removebg-preview.png" alt="Nike Dunk">
+                        <div class="button-group">
+                            <span>
+                                <i class="fa-regular fa-eye"></i>
+                            </span>
+                            <span>
+                                <i class="fa-regular fa-heart"></i>
+                            </span>
+                            <span>
+                              <i class="fa-solid fa-code-compare"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <h3>Nike Dunk Retro Blue</h3>
+                        <span class="add-cart">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <p class="price">$130.00</p>
+                    </div>
+                </div>
+                  <!--Producto 3 ----->
+                <div class="card-product">
+                    <div class="container-img">
+                        <img src="assets/IMAGE/_SHOES_-removebg-preview.png" alt="Nike Dunk">
+                        <div class="button-group">
+                            <span>
+                                <i class="fa-regular fa-eye"></i>
+                            </span>
+                            <span>
+                                <i class="fa-regular fa-heart"></i>
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-code-compare"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <h3>Nike Dunk Gris</h3>
+                        <span class="add-cart">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <p class="price">$119.99</p>
+                    </div>
+                </div>
+
+                  <!--Producto 1 ----->
+                <div class="card-product">
+                    <div class="container-img">
+                        <img src="assets/IMAGE/Adidas_Campus_00s_Grey-White__-removebg-preview.png" alt="Adidas Campus">
+                        <div class="button-group">
+                           <span class="btn-ver-producto" data-nombre="Adidas Campus" data-precio="150.00" data-img="assets/css/white front.jpg">
+                               <i class="fa-regular fa-eye"></i>
+                            </span>
+                            <span>
+                                <i class="fa-regular fa-heart"></i>
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-code-compare"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="content-card-product">
+                        <h3>Adidas Campus 00s Gris</h3>
+                        <span class="add-cart">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <p class="price">$150.00</p>
+                    </div>
+                </div>
+
+                  <!--Producto 1 ----->
+ <div class="card-product">
+    <div class="container-img">
+        <img src="assets/IMAGE/descargar__25_-removebg-preview.png" alt="Adidas Samba">
+        <div class="button-group">
+            <span class="btn-ver-producto"
+                  data-nombre="Adidas Samba"
+                  data-precio="120.00"
+                  data-img="assets/css/camiseta verde.jpg">
+                <i class="fa-regular fa-eye"></i>
+            </span>
+            <span>
+                <i class="fa-regular fa-heart"></i>
+            </span>
+            <span>
+                <i class="fa-solid fa-code-compare"></i>
+            </span>
+        </div>
+    </div>
+    <div class="content-card-product">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        <h3>Adidas Samba Color</h3>
+        <span class="add-cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+        </span>
+        <p class="price">$120.00</p>
+    </div>
+</div>
+
+                  <!--Producto 1 ----->
+ <div class="card-product">
+    <div class="container-img">
+        <img src="assets/IMAGE/descargar__26_-removebg-preview.png" alt="Adidas Spezial">
+        <div class="button-group">
+            <span class="btn-ver-producto"
+                  data-nombre="Camiseta Con Diseño"
+                  data-precio="119.99"
+                  data-img="assets/css/camiseta verde.jpg">
+                <i class="fa-regular fa-eye"></i>
+            </span>
+            <span>
+                <i class="fa-regular fa-heart"></i>
+            </span>
+            <span>
+                <i class="fa-solid fa-code-compare"></i>
+            </span>
+        </div>
+    </div>
+    <div class="content-card-product">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        <h3>Adidas Spezial</h3>
+        <span class="add-cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+        </span>
+        <p class="price">$120.00</p>
+    </div>
+</div>
+
+                  <!--Producto 1 ----->
+                <div class="card-product">
+                    <div class="container-img">
+                        <img src="assets/IMAGE/descargar__24_-removebg-preview.png" alt="Nike Dunk">
+                        <div class="button-group">
+                           <span class="btn-ver-producto" data-nombre="Nike Dunk Panda" data-precio="150.00" data-img="assets/css/white front.jpg">
+                               <i class="fa-regular fa-eye"></i>
+                            </span>
+                            <span>
+                                <i class="fa-regular fa-heart"></i>
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-code-compare"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <h3>Nike Dunk Panda</h3>
+                        <span class="add-cart">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <p class="price">$150.00</p>
+                    </div>
+                </div>
+
+                  <!--Producto 1 ----->
+                <div class="card-product">
+                    <div class="container-img">
+                        <img src="assets/IMAGE/descargar__27_-removebg-preview.png" alt="Asics">
+                        <div class="button-group">
+                           <span class="btn-ver-producto" data-nombre="Asics" data-precio="119.99" data-img="assets/css/white front.jpg">
+                               <i class="fa-regular fa-eye"></i>
+                            </span>
+                            <span>
+                                <i class="fa-regular fa-heart"></i>
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-code-compare"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <h3>Asics</h3>
+                        <span class="add-cart">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <p class="price">$119.99</p>
+                    </div>
+                </div>
+
+                  <!--Producto 1 ----->
+                <div class="card-product">
+                    <div class="container-img">
+                        <img src="assets/IMAGE/Yeezy_Shoes___Yeezy_Foam_Runners___Color__Black___Size__11-removebg-preview.png" alt="Adidas yezzy FOAM">
+                        <div class="button-group">
+                           <span class="btn-ver-producto" data-nombre="Adidas yezzy FOAM" data-precio="119.99" data-img="assets/css/white front.jpg">
+                               <i class="fa-regular fa-eye"></i>
+                            </span>
+                            <span>
+                                <i class="fa-regular fa-heart"></i>
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-code-compare"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <h3>Adidas yezzy FOAM</h3>
+                        <span class="add-cart">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <p class="price">$150.00</p>
+                    </div>
+                </div>
+
+                  <!--Producto 1 ----->
+                <div class="card-product">
+                    <div class="container-img">
+                        <img src="assets/IMAGE/Yeezy_500_Utility_Black_45__-removebg-preview.png" alt="Adidas Yezzy 500">
+                        <div class="button-group">
+                           <span class="btn-ver-producto" data-nombre="Adidas Yezzy 500" data-precio="200.00" data-img="assets/css/white front.jpg">
+                               <i class="fa-regular fa-eye"></i>
+                            </span>
+                            <span>
+                                <i class="fa-regular fa-heart"></i>
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-code-compare"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <h3>Adidas Yezzy 500</h3>
+                        <span class="add-cart">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <p class="price">$200.00</p>
+                    </div>
+                </div>
+
+                  <!--Producto 1 ----->
+                <div class="card-product">
+                    <div class="container-img">
+                        <img src="assets/IMAGE/descargar__29_-removebg-preview.png" alt="Puma">
+                        <div class="button-group">
+                           <span class="btn-ver-producto" data-nombre="Puma" data-precio="120.00" data-img="assets/css/white front.jpg">
+                               <i class="fa-regular fa-eye"></i>
+                            </span>
+                            <span>
+                                <i class="fa-regular fa-heart"></i>
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-code-compare"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <h3>Puma White Colaborattion</h3>
+                        <span class="add-cart">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <p class="price">$120.00</p>
+                    </div>
+                </div>
+                  <!--Producto 4 ----->
+                                  <div class="card-product">
+                    <div class="container-img">
+                        <img src="assets/IMAGE/descargar__28_-removebg-preview (1).png" alt="Adidas">
+                        <div class="button-group">
+                            <span>
+                                <i class="fa-regular fa-eye"></i>
+                            </span>
+                            <span>
+                                <i class="fa-regular fa-heart"></i>
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-code-compare"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <h3>Adidas Japon Style</h3>
+                        <span class="add-cart">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <p class="price">$110.00</p>
+                    </div>
+                </div>
+            </div>
+
+              <!--Producto 4 ----->
+                <div class="card-product">
+                    <div class="container-img">
+                        <img src="assets/IMAGE/10_Ultra-_Modern_Shoe_Designs_For_The_Fashion_Forward_-removebg-preview.png" alt="New balance">
+                        <div class="button-group">
+                            <span>
+                                <i class="fa-regular fa-eye"></i>
+                            </span>
+                            <span>
+                                <i class="fa-regular fa-heart"></i>
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-code-compare"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <h3>New balance Brown</h3>
+                        <span class="add-cart">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <p class="price">$130.00</p>
+                    </div>
+                </div>
+            </div>
+
+               <!--Producto 4 ----->
+                                  <div class="card-product">
+                    <div class="container-img">
+                        <img src="assets/IMAGE/descargar__32_-removebg-preview.png" alt="Luis Vuitton">
+
+                        <div class="button-group">
+                            <span>
+                                <i class="fa-regular fa-eye"></i>
+                            </span>
+                            <span>
+                                <i class="fa-regular fa-heart"></i>
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-code-compare"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <h3>Luis Vuitton blue Retro</h3>
+                        <span class="add-cart">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <p class="price">$800.00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+  </main>
+
+  <!-- FOOTER -->
+ <footer class="footer">
+        <div class="container container-footer">
+            <div class="menu-footer">
+                <div class="contact-info">
+                    <p class="title-footer">Información de contacto</p>
+                    <ul>
+                        <li>Direccion: 71 Pennignton lane venom 
+                            rokwilre, cgt 0565
+                        </li>
+                        <li>Telefono: 987-798-778</li>
+                        <li>Fax: 5565656</li>
+                        <li>Email: rofadeclub@gmail.com</li>
+                    </ul>
+<div class="social-icons">
+   <a href="https://www.facebook.com/profile.php?id=61555402406398" target="_blank" class="facebook" title="Facebook">
+       <span><i class="fa-brands fa-facebook-f"></i></span>
+   </a>
+   <a href="https://x.com/rofadeoffciial" target="_blank" class="twitter" title="Twitter">
+       <span><i class="fa-brands fa-twitter"></i></span>
+   </a>
+   <a href="https://www.instagram.com/rofadeofficial/" target="_blank" class="instagram" title="Instagram">
+       <span><i class="fa-brands fa-instagram"></i></span>
+   </a>
+   <a href="https://www.youtube.com/@rofadeclub" target="_blank" class="youtube" title="YouTube">
+       <span><i class="fa-brands fa-youtube"></i></span>
+   </a>
+   <a href="https://www.tiktok.com/@rofadee?lang=es-419" target="_blank" class="tiktok" title="TikTok">
+       <span><i class="fa-brands fa-tiktok"></i></span>
+   </a>
+</div>
+                </div>
+
+                <div class="information">
+                    <p class="title-footer">Informacion</p>
+                    <ul>
+                        <li><a href="#">Acerca de Nosotros</a></li>
+                        <li><a href="#">Información de entrega</a></li>
+                        <li><a href="#">Políticas de privacidad</a></li>
+                        <li><a href="#">Términos y condicioness</a></li>
+                        <li><a href="#">Contactanos</a></li>
+                    </ul>
+                </div>
+
+                <div class="my-account">
+                    <p class="title-footer">Mi cuenta</p>
+                    <ul>
+                        <li><a href="#">Mi cuenta</a></li>
+                        <li><a href="#">Historial de ordenes</a></li>
+                        <li><a href="#">Lista de deseos</a></li>
+                        <li><a href="#">Boletin</a></li>
+                        <li><a href="#">Reembolsos</a></li>
+                    </ul>
+                </div>
+
+                <div class="newsletter">
+                    <p class="title-footer">Boletin informativo</p>
+
+                    <div class="content">
+                        <p>
+                            Suscríbete a nuestros boletines ahora y mantente al dia 
+                            con nuevas colecciones y ofertas exclusivas.
+                        </p>
+                        <input type="email" placeholder="Ingresa el correo aquí..." required>
+                             <button onclick="suscribirseBoletin()">Suscribirse</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>
+                    Desarrollado por Programación para el Mundo © 2022
+                </p>
+
+                <img src="assets/css/pagos.png" alt="Pagos">
+            </div>
+        </div>
+    </footer>
+
+    <div id="modal-producto" class="modal-producto hidden">
+  <div class="modal-content">
+    <span class="close-modal" id="cerrar-modal">&times;</span>
+    <img id="modal-img" src="" alt="Producto">
+    <h2 id="modal-nombre" class="modal-titulo"></h2>
+    <p id="modal-precio" class="modal-precio"></p>
+    <p id="modal-descripcion" class="modal-texto">Descripción breve del producto.</p>
+
+    <!-- NUEVO: selector de tallas -->
+    <label for="select-talla" class="modal-texto" style="font-weight: bold;">Tallas disponibles:</label>
+    <select id="select-talla" class="modal-texto" style="padding: 5px; margin-bottom: 1rem;">
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <p id="modal-material" class="modal-texto">Material: Algodón premium</p>
+    <p id="modal-stock" class="modal-texto">Disponibilidad: En stock</p>
+
+    <!-- NUEVO: botón de añadir al carrito -->
+    <button id="btn-agregar-carrito" style="margin-top: 1rem; padding: 10px 20px; background-color: #a51010; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+      Añadir al carrito
+    </button>
+  </div>
+</div>
+
+    <script src="assets/js/Actualizarcarrito.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="https://kit.fontawesome.com/53074f958c.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
